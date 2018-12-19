@@ -1,0 +1,13 @@
+[Unit]
+Description=Hosting Check Expiring Packages
+After=network.target httpd.servie mysqld.service
+
+[Service]
+Type=simple
+ExecStart=/hosting/daemon/start.py checkExpiringPackages
+KillMode=process
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+

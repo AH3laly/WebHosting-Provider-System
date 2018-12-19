@@ -1,0 +1,13 @@
+[Unit]
+Description=Hosting Start Mailer
+After=network.target httpd.servie mysqld.service
+
+[Service]
+Type=simple
+ExecStart=/hosting/daemon/start.py startMailer
+KillMode=process
+#Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+

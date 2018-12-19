@@ -1,0 +1,13 @@
+[Unit]
+Description=Hosting Check Transferring Domains
+After=network.target httpd.servie mysqld.service
+
+[Service]
+Type=simple
+ExecStart=/hosting/daemon/start.py checkTransferringDomains
+KillMode=process
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+
